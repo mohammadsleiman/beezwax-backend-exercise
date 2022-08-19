@@ -1,6 +1,65 @@
 # Beezwax's Backend Node Exercise
 
-## Instructions
+### Available Endpoints
+<br>
+
+
+### GET `/transponders/`
+Gets root transponders with children
+
+<details>
+<summary>
+
+```
+Expand JSON Response
+```
+
+</summary>
+<p>
+
+```json
+{
+  "transponders": [
+    {
+      "id": 0,
+      "name": "a",
+      "children": [
+        {
+          "id": 2,
+          "name": "c",
+          "children": []
+        },
+        {
+          "id": 3,
+          "name": "d",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
+```
+
+</p>
+</details>
+
+
+
+### GET `/count/`
+Gets count of all transponders 
+```json
+{"count":14}
+```
+
+### GET `/count/id`
+Gets count of transponder children if valid Id is given
+```json
+{"count":3}
+```
+
+
+#
+# Instructions
 
 You are tasked with creating an API to access information about a global satellite transponder network. The network is constructed such that local satellites only communicate to a single parent satellite. Those parent satellites then communicate to their parents, and so on. There can be any number of levels of nesting and there may be multiple root top level satellites.
 
