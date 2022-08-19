@@ -38,7 +38,8 @@ app.get("/transponders", (req: Request,res: Response)=>{
   .then((data:any)=>{
     var transponderRootsIds = data[0], transponderData = data[1], transponderRelations = data[2]
     var transponderRoots = dbHelper.getTransponderRootsWithChildren(transponderData, transponderRelations, transponderRootsIds);
-    res.send(transponderRoots)
+    var resObj = {transponders: transponderRoots}
+    res.send(resObj)
   })
   .catch((error:any)=>{res.status(500).json({message: "error cannot get transponders"})})
 });
